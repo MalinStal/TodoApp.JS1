@@ -4,33 +4,42 @@ const description = document.getElementById("description");
 const ulTodo = document.getElementById("myUlTodo");
 const ulDone = document.getElementById("myUlDone");
 
+let todos = [];
+let todo = {
+    addTask: toDoInput.value,
+    description: description.value,
+    bool: false,
+}
+todos.push(todo);
+console.log(todos)
 
 // skapa en ny li vid knapp tryckning
 addBtn.addEventListener("click", function() {
-  
-    var li = document.createElement("li");
-    li.innerHTML= toDoInput.value;
-    ulTodo.appendChild(li);
+  todos.forEach(todo =>{
+    let li = document.createElement("li");
+    ulTodo.append(li);
+    li.innerHTML= todo.addTask;
 
-    var paragraf = document.createElement("p");
-    li.appendChild(paragraf)
-    paragraf.innerHTML = description.value;
+    let paragraf = document.createElement("p");
+    li.append(paragraf)
+    paragraf.innerHTML = todo.description;
     
-    var closeBtn = document.createElement("button");
+    let closeBtn = document.createElement("button");
     closeBtn.innerHTML = "X";
-    li.appendChild(closeBtn);
+    li.append(closeBtn);
 
-    toDoInput.value = "";
-    description.value = "";
 
-    
+    //toDoInput.value = "";
+   // description.value = "";
+
     //stryker över texten när en uppgift är klar och flytta till done list
     li.addEventListener("click" , e => {
        // todo.done = false;
       
         li.style.textDecoration = "line-through";
         ulDone.appendChild(li);
-        e.default()
+        todo.bool = true
+        e.preventDefault()
       
         
     });
@@ -39,23 +48,23 @@ addBtn.addEventListener("click", function() {
        
             ulTodo.appendChild(li);
         li.style.textDecoration = "none";
-        e.stopPropagation()
+        e.preventDefault()
         //todo.done = true;
         
     })
     //tar bort uppgiften när du klickar på x knappen
     closeBtn.addEventListener("click", e => {
-        if(li.parentElement === ulTodo) {ulTodo.removeChild(li)} //if satsen fungerar ej 
-        else {ulDone.removeChild(li)}
-        
-        e.stopPropagation()
-      
+        if(li.parentElement === ulTodo) {
+            ulTodo.removeChild(li)
+        } 
+        else if(li.parentElement === ulDone)  {
+            ulDone.removeChild(li)
+        }
+            e.stopPropagation()
+       
     })
+})
     
-   /* let todo = {
-    titel: "",
-    description: "",
-    done: false,*/
 
 }); 
 
