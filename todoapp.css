@@ -1,0 +1,25 @@
+* {
+    margin:0;
+    padding: 0;
+    cursor: pointer;
+   
+    }
+    body {
+        background-color: rgba(137, 43, 226, 0.144);
+    }
+    .header {
+        background-color: blueviolet;
+        padding: 20px;
+        text-align: center;
+    }
+   
+    .myUl{
+        margin-top: 30px;
+    }
+    li {
+        
+        padding: 10px;
+        font-size: 1.3rem;
+        text-align: center;
+
+    }
