@@ -22,6 +22,26 @@ addBtn.addEventListener("click", function() {
     toDoInput.value = "";
     description.value = "";
 
-
+    
+    //stryker över texten när en uppgift är klar och flytta till done list
+    li.addEventListener("click" , e => {
+      
+        li.style.textDecoration = "line-through";
+        ulDone.appendChild(li);
+        console.log("1")
+    });
+    //debbelklicka för att ta bort sträcket om man behöver göra uppgiften igen och flytta tillbaka den till todo list
+    li.addEventListener("dblclick", e => {
+        console.log("2")
+            ulTodo.appendChild(li);
+        li.style.textDecoration = "none";
+        
+    })
+    //tar bort uppgiften när du klickar på x knappen
+    closeBtn.addEventListener("click", e => {
+        ulTodo.removeChild(li)
+        console.log("3")
+      
+    })
 }); 
 
