@@ -4,6 +4,7 @@ const description = document.getElementById("description");
 const ulTodo = document.getElementById("myUlTodo");
 const ulDone = document.getElementById("myUlDone");
 
+
 // skapa en ny li vid knapp tryckning
 addBtn.addEventListener("click", function() {
   
@@ -29,15 +30,13 @@ addBtn.addEventListener("click", function() {
       
         li.style.textDecoration = "line-through";
         ulDone.appendChild(li);
-        console.log("1")
-        e.stopPropagation()
+        e.default()
       
         
     });
     //dubbelklicka för att ta bort sträcket om man behöver göra uppgiften igen och flytta tillbaka den till todo list
     li.addEventListener("dblclick", e => {
-        
-        console.log("2")
+       
             ulTodo.appendChild(li);
         li.style.textDecoration = "none";
         e.stopPropagation()
@@ -46,9 +45,9 @@ addBtn.addEventListener("click", function() {
     })
     //tar bort uppgiften när du klickar på x knappen
     closeBtn.addEventListener("click", e => {
-        if(ulTodo.li) {ulTodo.removeChild(li)} //if satsen fungerar ej 
+        if(li.parentElement === ulTodo) {ulTodo.removeChild(li)} //if satsen fungerar ej 
         else {ulDone.removeChild(li)}
-        console.log("3")
+        
         e.stopPropagation()
       
     })
@@ -56,8 +55,8 @@ addBtn.addEventListener("click", function() {
    /* let todo = {
     titel: "",
     description: "",
-    done: false,
-} */
+    done: false,*/
+
 }); 
 
 
