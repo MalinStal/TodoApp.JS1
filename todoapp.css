@@ -6,20 +6,42 @@
     }
     body {
         background-color: rgba(137, 43, 226, 0.144);
+        color: rgba(18, 17, 17, 0.858);
     }
     .header {
-        background-color: blueviolet;
+        background-color: rgba(137, 43, 226, 0.726);
         padding: 20px;
         text-align: center;
+    }
+    input {
+        padding: 7px;
+    }
+    label {
+        font-size: 1.2rem;
+        padding: 20px;
+        text-decoration: underline;
     }
    
     .myUl{
         margin-top: 30px;
     }
     li {
-        
+        border: 1px solid black;
         padding: 10px;
-        font-size: 1.3rem;
+        font-size: 1.5rem;
         text-align: center;
 
+    }
+    button {
+        padding: 5px;
+    }
+    p {
+        color: rgba(62, 61, 61, 0.788);
+        font-size: 1.2rem;
+    }
+    h4 {
+        text-align: start;
+        margin-top: 15px;
+        margin-left: 30px;
+        font-size: 2rem;
     }
