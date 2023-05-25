@@ -25,23 +25,42 @@ addBtn.addEventListener("click", function() {
     
     //stryker över texten när en uppgift är klar och flytta till done list
     li.addEventListener("click" , e => {
+       // todo.done = false;
       
         li.style.textDecoration = "line-through";
         ulDone.appendChild(li);
         console.log("1")
+        e.stopPropagation()
+      
+        
     });
-    //debbelklicka för att ta bort sträcket om man behöver göra uppgiften igen och flytta tillbaka den till todo list
+    //dubbelklicka för att ta bort sträcket om man behöver göra uppgiften igen och flytta tillbaka den till todo list
     li.addEventListener("dblclick", e => {
+        
         console.log("2")
             ulTodo.appendChild(li);
         li.style.textDecoration = "none";
+        e.stopPropagation()
+        //todo.done = true;
         
     })
     //tar bort uppgiften när du klickar på x knappen
     closeBtn.addEventListener("click", e => {
-        ulTodo.removeChild(li)
+        if(ulTodo.li) {ulTodo.removeChild(li)} //if satsen fungerar ej 
+        else {ulDone.removeChild(li)}
         console.log("3")
+        e.stopPropagation()
       
     })
+    
+   /* let todo = {
+    titel: "",
+    description: "",
+    done: false,
+} */
 }); 
 
+
+
+
+// denna boolean ska på något sätt ha koll på om uppgiften är klar eller inte. 
