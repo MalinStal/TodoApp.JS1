@@ -23,8 +23,10 @@ addBtn.addEventListener("click", function() {
   todos.forEach(todo =>{
     const li = document.createElement("li");
     ulTodo.append(li);
-    //li.innerHTML = todo.addTask;
     
+    const checkbox = document.createElement("input");
+    checkbox.type= "checkbox";
+    li.append(checkbox)
     const title = document.createElement("h3");
     li.appendChild(title);
     title.innerHTML= todo.addTask;
@@ -36,6 +38,8 @@ addBtn.addEventListener("click", function() {
     const timeStamp = document.createElement("span");
     li.append(timeStamp);
     timeStamp.innerHTML="added task" + todo.time;
+    const timeStampDone = document.createElement("span");
+        li.append(timeStampDone) 
     
     const closeBtn = document.createElement("button");
     closeBtn.innerHTML = "X";
@@ -46,28 +50,28 @@ addBtn.addEventListener("click", function() {
     //description.value = "";
 
     //stryker över texten när en uppgift är klar och flytta till done list
+   
     li.addEventListener("click" , e => {
     
         title.style.textDecoration = "line-through";
         ulDone.appendChild(li);
-        todo.bool = true
         
-        const timeStampDone = document.createElement("span");
-        li.append(timeStampDone) // skapar en tidsstämpel, behöver lösa så den försvinner om man vill ta tillbaka tasken till todolist
+        
+        // skapar en tidsstämpel, behöver lösa så den försvinner om man vill ta tillbaka tasken till todolist
         timeStampDone.innerHTML="done whit task" + todo.time;
         e.preventDefault()
       
         
-    }, {once : true}); //onse true betyder att detta event bara körs 1 gång sedan så går det inte att köra det igen. blir inte bra i detta läge 
-    
+    });//, {once : true});
     //dubbelklicka för att ta bort sträcket om man behöver göra uppgiften igen och flytta tillbaka den till todo list
     li.addEventListener("dblclick", e => {
        
         ulTodo.appendChild(li);
         title.style.textDecoration = "none";
+        timeStampDone.innerHTML=" ";
        
         e.preventDefault()
-        //todo.done = true;
+        
         
     })
     //tar bort uppgiften när du klickar på x knappen
@@ -80,7 +84,7 @@ addBtn.addEventListener("click", function() {
         }
             e.stopPropagation()
        
-    })
+    }) 
 })
     
 
@@ -93,4 +97,3 @@ function setTime() {
     }
 
 
-// denna boolean ska på något sätt ha koll på om uppgiften är klar eller inte. 
