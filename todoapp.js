@@ -3,30 +3,31 @@ const toDoInput = document.getElementById("toDoInput");
 const description = document.getElementById("description");
 const ulTodo = document.getElementById("myUlTodo");
 const ulDone = document.getElementById("myUlDone");
+const form = document.getElementById("form");
 
 
 let todos = [];
 
 
-let todo = {
-    addTask: toDoInput.value,
-    description: description.value,
-    bool: false,
-    time: setTime(),
-}
-todos.push(todo);
 
 
 
 // skapa en ny li vid knapp tryckning
 addBtn.addEventListener("click", function() {
-  todos.forEach(todo =>{
+  let todo = {
+    addTask: toDoInput.value,
+    description: description.value,
+    bool: false,
+  }
+todos.push(todo)
+//todos.forEach(todo =>{
     const li = document.createElement("li");
     ulTodo.append(li);
     
     const checkbox = document.createElement("input");
     checkbox.type= "checkbox";
     li.append(checkbox)
+    checkbox.classList.add("checkbox")
     const title = document.createElement("h3");
     li.appendChild(title);
     title.innerHTML= todo.addTask;
@@ -37,43 +38,42 @@ addBtn.addEventListener("click", function() {
 
     const timeStamp = document.createElement("span");
     li.append(timeStamp);
-    timeStamp.innerHTML="added task" + todo.time;
+    timeStamp.classList.add("timestamps")
+    timeStamp.innerHTML="added task  " + setTime();
+
     const timeStampDone = document.createElement("span");
         li.append(timeStampDone) 
+        timeStampDone.classList.add("timestamps")
     
     const closeBtn = document.createElement("button");
-    closeBtn.innerHTML = "X";
+    closeBtn.innerHTML = "Delete";
     li.append(closeBtn);
+    closeBtn.classList.add("closeBtn");
 
+    console.log(todos)
 
-   // toDoInput.value = "";
-    //description.value = "";
+   toDoInput.value = "";
+    description.value = "";
 
     //stryker över texten när en uppgift är klar och flytta till done list
    
-    li.addEventListener("click" , e => {
-    
+    checkbox.addEventListener("change" , e => {
+       if(checkbox.checked){
         title.style.textDecoration = "line-through";
         ulDone.appendChild(li);
-        
-        
-        // skapar en tidsstämpel, behöver lösa så den försvinner om man vill ta tillbaka tasken till todolist
-        timeStampDone.innerHTML="done whit task" + todo.time;
-        e.preventDefault()
-      
-        
-    });//, {once : true});
-    //dubbelklicka för att ta bort sträcket om man behöver göra uppgiften igen och flytta tillbaka den till todo list
-    li.addEventListener("dblclick", e => {
-       
-        ulTodo.appendChild(li);
+        timeStampDone.innerHTML="  done whit task " + setTime();
+        } else{
+             ulTodo.appendChild(li);
         title.style.textDecoration = "none";
         timeStampDone.innerHTML=" ";
        
+        }
+
+        timeStampDone.style = ""
         e.preventDefault()
         
-        
-    })
+    });
+    
     //tar bort uppgiften när du klickar på x knappen
     closeBtn.addEventListener("click", e => {
         if(li.parentElement === ulTodo) {
@@ -85,15 +85,18 @@ addBtn.addEventListener("click", function() {
             e.stopPropagation()
        
     }) 
-})
-    
+//})
+   
 
 }); 
 // funktion som sätter en tids stämpel
 function setTime() {
-    let currentTime = new Date().getTime();
-    let time = new Date(currentTime).toLocaleTimeString()
-        return time;
+    const now = new Date()
+    const hoursAndMinutes = now.getHours() + ':' + now.getMinutes();
+
+        return hoursAndMinutes;
     }
+
+    
 
 

@@ -28,9 +28,11 @@
     }
    
     ul{
+        
         margin-top: 30px;
         padding: 20px;
         list-style: number;
+       
     }
     li {
         display: flex;
@@ -39,18 +41,26 @@
         padding: 10px;
         font-size: 1.5rem;
         text-align: center;
+        gap: 10px;
 
 
     }
-    
+    .closeBtn {
+        background-color: white;
+        border-radius: 5px;
+        width: 60px;
+        height: 30px;
+    }
     button {
         padding: 5px;
+        text-align: end;
+
 
     }
     p {
         padding: 3px;
         margin: 0px 30px;
-        color: rgba(62, 61, 61, 0.788);
+        color: rgba(33, 32, 32, 0.873);
         font-size: 1.2rem;
     }
     h2 {
@@ -60,7 +70,13 @@
         font-size: 2rem;
     }
     .checkbox {
-        
+        border-radius: 50px;
         width: 20px;
         text-align: start;
+        
+    }
+    .timestamps {
+        color: rgba(62, 61, 61, 0.788);
+        font-size: 18px;
+        padding: 10px;
     }
