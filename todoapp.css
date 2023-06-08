@@ -7,11 +7,11 @@
     body {
         background-color: rgba(137, 43, 226, 0.144);
         color: rgba(18, 17, 17, 0.858);
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-family:  'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     }
     .header {
         background-color: rgba(137, 43, 226, 0.726);
-        padding: 30px;
+        padding: 20px;
         text-align: center;
     }
     .container {
@@ -19,17 +19,30 @@
         justify-content: center;
 
     }
+   
     input {
         padding: 7px;
         border-radius: 20px;
         border: 0;
+        max-width: 500px;
+        max-height: 30px;
     }
     label {
         font-size: 1.3rem;
         padding: 20px;
        
     }
-   
+    button {
+        font-family:  'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 0.9em;
+        margin-left: 20px;
+        padding: 7px;
+        border-radius: 20px;
+        border: 0;
+       max-width: 100px;
+       
+
+    } 
     ul{
         
         margin-top: 30px;
@@ -46,21 +59,16 @@
         text-align: center;
         gap: 10px;
 
-
     }
+   
     .closeBtn {
+        
         background-color: white;
-        border-radius: 5px;
+        border-radius: 20px;
         width: 60px;
         height: 30px;
-    }
-    button {
-        margin-left: 20px;
-        padding: 7px;
-        border-radius: 20px;
-        border: 0;
-
-
+       
+        font-size: 14px;
     }
     p {
         padding: 3px;
@@ -93,5 +101,22 @@
         background-color: black;
         color: white;
         font-size: 2em;
-        
+
+    }
+    @media screen and (max-width: 900px){
+        .form {
+            display: grid;
+            grid-template-rows:  1fr 1fr 1fr 1fr 1fr ;
+           justify-content: center;
+           
+            
+        }
+        button {
+    
+           max-width: 100px;
+           max-height: 40px;
+           text-align: center;
+
+    
+        }
     }
