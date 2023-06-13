@@ -5,26 +5,38 @@ const description = document.getElementById("description");
 const ulTodo = document.getElementById("myUlTodo");
 const ulDone = document.getElementById("myUlDone");
 let todos = [];
-let newTodoId = 31;
-fetch('https://dummyjson.com/todos?limit=5')
-.then(res => res.json())
+//let newTodoId = 31;
+
+fetch('https://dummyjson.com/todos?limit=10')
+.then(response => {
+  if (response.status !== 200) {//200 Code that displays that code works T_T
+    alert("error")
+  }
+  return response.json()
+})
 .then((value) => {
-       let todos =  value.todos
-       loopTrue(todos)
+      loopTrue(value.todos)
     
     console.log(value)
 });
 
 function loopTrue(todos) { 
-  for( let todo of todos) {
-    let element = createATodo(todo);
+ for (i =0; i < 10; i++){
+  let e = todos[i]
+  
+ }
+ 
+  /* for( let todo of todos) {
+    let thisTodo = createATodo(todo);
 
     if (todo.completed === true) {
-      ulDone.append(element);
+      ulDone.append(thisTodo);
+      console.log(todo.completed)
     } else {
-      ulTodo.append(element);
-    }
-  }}
+      ulTodo.append(thisTodo);
+      console.log(todo.completed)
+    }}*/
+  }
     
 function createATodo(todo) {
   const li = document.createElement("li");
@@ -71,12 +83,12 @@ function createATodo(todo) {
   
 
     })
-  }
+  
   addBtn.addEventListener("click", (e) => {
-    addTodo (toDoInput.value, todos, () => {
-      loopTrue(todos)
-    })
-})
+    addTodo (toDoInput.value, todos, () => {loopTrue(todos)})
+  })
+};
+/*
     function addTodo (description, task, after) {
       fetch('https://dummyjson.com/todos/add', {
         method: 'POST',
@@ -111,4 +123,4 @@ function createATodo(todo) {
           }
         });
       }
-      
+       */
