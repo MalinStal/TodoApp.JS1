@@ -5,11 +5,7 @@ const ulTodo = document.getElementById("myUlTodo");
 const ulDone = document.getElementById("myUlDone");
 const form = document.getElementById("form");
 
-
 let todos = [];
-
-
-
 
 // skapa en ny li vid knapp tryckning
 addBtn.addEventListener("click", function () {
@@ -70,15 +66,12 @@ addBtn.addEventListener("click", function () {
             paragraf.style.textDecoration = "none";
             timeStampDone.innerHTML = " ";
             todo.bool = false;
-
-
         }
 
         timeStampDone.style = ""
         e.preventDefault()
 
     });
-
     //tar bort uppgiften när du klickar på x knappen
     closeBtn.addEventListener("click", e => {
         if (li.parentElement === ulTodo) {
@@ -93,10 +86,6 @@ addBtn.addEventListener("click", function () {
     //})
 
     }
-   
-    //stryker över texten när en uppgift är klar och flytta till done list
-
-   
 
 });
 // funktion som sätter en tids stämpel
