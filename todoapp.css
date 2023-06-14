@@ -82,6 +82,9 @@
         margin-left: 30px;
         font-size: 2rem;
     }
+    h3 {
+        font-size: 20px;
+    }
     .checkbox {
         border-radius: 50px;
         width: 20px;
