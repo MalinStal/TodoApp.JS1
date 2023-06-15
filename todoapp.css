@@ -1,122 +1,136 @@
 * {
-    margin:0;
+    margin: 0;
     padding: 0;
     cursor: pointer;
-   
-    }
-    body {
-        background-color: rgba(137, 43, 226, 0.144);
-        color: rgba(18, 17, 17, 0.858);
-        font-family:  'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    }
-    .header {
-        background-color: rgba(137, 43, 226, 0.726);
-        padding: 20px;
-        text-align: center;
-    }
-    .container {
-        display: flex;
+
+}
+
+body {
+    background-color: rgba(137, 43, 226, 0.144);
+    color: rgba(18, 17, 17, 0.858);
+    font-family: 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.header {
+    background-color: rgba(137, 43, 226, 0.726);
+    padding: 20px;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+
+}
+
+input {
+    padding: 7px;
+    border-radius: 20px;
+    border: 0;
+    max-width: 500px;
+    max-height: 30px;
+}
+
+label {
+    font-size: 1.3rem;
+    padding: 20px;
+
+}
+
+button {
+    font-family: 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 0.9em;
+    margin-left: 20px;
+    padding: 7px;
+    border-radius: 20px;
+    border: 0;
+    max-width: 100px;
+
+
+}
+
+ul {
+
+    margin-top: 30px;
+    padding: 20px;
+    list-style: number;
+
+}
+
+li {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid black;
+    padding: 10px;
+    font-size: 1.5rem;
+    text-align: center;
+    gap: 10px;
+
+}
+
+.closeBtn {
+
+    background-color: white;
+    border-radius: 20px;
+    width: 60px;
+    height: 30px;
+
+    font-size: 14px;
+}
+
+p {
+    padding: 3px;
+    margin: 0px 30px;
+    color: rgba(33, 32, 32, 0.873);
+    font-size: 1.2rem;
+}
+
+h2 {
+    text-align: start;
+    margin-top: 15px;
+    margin-left: 30px;
+    font-size: 2rem;
+}
+
+.checkbox {
+    border-radius: 50px;
+    width: 20px;
+    text-align: start;
+
+}
+
+.timestamps {
+    color: rgba(62, 61, 61, 0.788);
+    font-size: 12px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.errorMessage {
+    text-align: center;
+    display: none;
+    background-color: black;
+    color: white;
+    font-size: 2em;
+
+}
+
+@media screen and (max-width: 900px) {
+    .form {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
         justify-content: center;
 
+
     }
-   
-    input {
-        padding: 7px;
-        border-radius: 20px;
-        border: 0;
-        max-width: 500px;
-        max-height: 30px;
-    }
-    label {
-        font-size: 1.3rem;
-        padding: 20px;
-       
-    }
+
     button {
-        font-family:  'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        font-size: 0.9em;
-        margin-left: 20px;
-        padding: 7px;
-        border-radius: 20px;
-        border: 0;
-       max-width: 100px;
-       
 
-    } 
-    ul{
-        
-        margin-top: 30px;
-        padding: 20px;
-        list-style: number;
-       
-    }
-    li {
-        display: flex;
-        flex-wrap: wrap;
-        border-bottom: 1px solid black;
-        padding: 10px;
-        font-size: 1.5rem;
+        max-width: 100px;
+        max-height: 40px;
         text-align: center;
-        gap: 10px;
+
 
     }
-   
-    .closeBtn {
-        
-        background-color: white;
-        border-radius: 20px;
-        width: 60px;
-        height: 30px;
-       
-        font-size: 14px;
-    }
-    p {
-        padding: 3px;
-        margin: 0px 30px;
-        color: rgba(33, 32, 32, 0.873);
-        font-size: 1.2rem;
-    }
-    h2 {
-        text-align: start;
-        margin-top: 15px;
-        margin-left: 30px;
-        font-size: 2rem;
-    }
-    .checkbox {
-        border-radius: 50px;
-        width: 20px;
-        text-align: start;
-        
-    }
-    .timestamps {
-        color: rgba(62, 61, 61, 0.788);
-        font-size: 12px;
-        padding: 10px;
-        display: flex;
-        flex-direction: column;
-    }
-    .errorMessage {
-        text-align: center;
-        display: none;
-        background-color: black;
-        color: white;
-        font-size: 2em;
-
-    }
-    @media screen and (max-width: 900px){
-        .form {
-            display: grid;
-            grid-template-rows:  1fr 1fr 1fr 1fr 1fr ;
-           justify-content: center;
-           
-            
-        }
-        button {
-    
-           max-width: 100px;
-           max-height: 40px;
-           text-align: center;
-
-    
-        }
-    }
+}

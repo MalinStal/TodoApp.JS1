@@ -53,7 +53,7 @@ addBtn.addEventListener("click", function () {
 
         toDoInput.value = "";
         description.value = "";
-        
+        // flyttar uppgiften mellan todo och done listan om checkboxen är checked eller inte
         checkbox.addEventListener("change", e => {
             if (checkbox.checked) {
                 title.style.textDecoration = "line-through";
