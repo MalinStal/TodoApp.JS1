@@ -13,8 +13,7 @@ getAllTodos()
 
 //lägger till en ny todo objekt i listan
 addBtn.addEventListener("click", e => {
-   
-
+   // lägger till en ny todo eller skickar ut felmeddelande ifall man inte fyllt i input fältet
     if (toDoInput.value !== "") {
         document.querySelector(".errorMessage").style.display = "none";
         
@@ -29,7 +28,7 @@ addBtn.addEventListener("click", e => {
     e.stopPropagation()
 })
 
-//skapar en ny todo li
+//skapar en ny todo li och skickar den till todo listan. 
 function createTodo(todo) {
 
     const li = document.createElement("li");
@@ -61,6 +60,7 @@ function createTodo(todo) {
 
     inBeginning(ulTodo, li)
     toDoInput.value = "";
+    // flyttar uppgiften mellan todo eller done listan beroende på om den är klar eller inte
     checkbox.addEventListener("change", e => {
         if (checkbox.checked) {
 
@@ -76,7 +76,7 @@ function createTodo(todo) {
         }
         e.stopPropagation()
     })
-
+//raderar en todo genom API:et  
     closeBtn.addEventListener("click", e => {
         removeTodo(todo, todos, () => {
 
@@ -104,7 +104,6 @@ function createATodoFetch(todo, list, after) {
             userId: 1,
         })
     })
-
         .then(res => res.json())
         .then((value) => {
             value.id = idCount++;
@@ -210,7 +209,7 @@ function loopTrueTodo(information) {
         })
     }
 }
-
+// sätter nuvarande tid och datum 
 function setTime() {
     const now = new Date()
     let day = now.getDate().toString().padStart(2, "0");
@@ -224,6 +223,7 @@ function setTime() {
     return "Date: " + currentDate + " Time: " + hoursAndMinutes;
 }
 
+// lägger ett child element högst upp i en parent  
 function inBeginning(parent, insert) {
     const firstChild = parent.firstChild;
     parent.insertBefore(insert, firstChild)
