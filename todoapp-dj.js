@@ -13,22 +13,18 @@ getAllTodos()
 
 //lägger till en ny todo objekt i listan
 addBtn.addEventListener("click", e => {
-let todo = {
-    addtask: toDoInput.value,
-    bool: false,
-    
-} 
-if ( todo.addtask !== "") {
-    document.querySelector(".errorMessage").style.display = "none";
-   todos.push(todo)
-    createATodoFetch(todo.addtask, todos, () => {
-        createTodo(todo)
+   
 
-    })
-} else {
-    document.querySelector(".errorMessage").style.display = "block";
-}
+    if (toDoInput.value !== "") {
+        document.querySelector(".errorMessage").style.display = "none";
+        
+        createATodoFetch(toDoInput.value, todos, (todo) => {
+            createTodo(todo)
 
+        })
+    } else {
+        document.querySelector(".errorMessage").style.display = "block";
+    }
 
     e.stopPropagation()
 })
@@ -36,44 +32,44 @@ if ( todo.addtask !== "") {
 //skapar en ny todo li
 function createTodo(todo) {
 
-        const li = document.createElement("li");
-        ulTodo.append(li);
-       
-        const checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-        li.append(checkbox)
+    const li = document.createElement("li");
+    ulTodo.append(li);
 
-        checkbox.checked = todo.bool
-        checkbox.classList.add("checkbox")
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    li.append(checkbox)
 
-        const title = document.createElement("h3");
-        li.appendChild(title);
-        title.innerHTML = todo.addtask;
+    checkbox.checked = todo.completed
+    checkbox.classList.add("checkbox")
 
-        const timeStamp = document.createElement("span");
-        li.append(timeStamp);
-        timeStamp.classList.add("timestamps")
-        timeStamp.innerHTML = "<strong>Added task: </strong>" + setTime();
+    const title = document.createElement("h3");
+    li.appendChild(title);
+    title.innerHTML = todo.todo;
 
-        const timeStampDone = document.createElement("span");
-        li.append(timeStampDone)
-        timeStampDone.classList.add("timestamps")
-        const closeBtn = document.createElement("button");
-        closeBtn.innerHTML = "Delete";
-        li.append(closeBtn);
-        closeBtn.classList.add("closeBtn");
-        
-        inBeginning(ulTodo, li)
-       toDoInput.value = "";
+    const timeStamp = document.createElement("span");
+    li.append(timeStamp);
+    timeStamp.classList.add("timestamps")
+    timeStamp.innerHTML = "<strong>Added task: </strong>" + setTime();
+
+    const timeStampDone = document.createElement("span");
+    li.append(timeStampDone)
+    timeStampDone.classList.add("timestamps")
+    const closeBtn = document.createElement("button");
+    closeBtn.innerHTML = "Delete";
+    li.append(closeBtn);
+    closeBtn.classList.add("closeBtn");
+
+    inBeginning(ulTodo, li)
+    toDoInput.value = "";
     checkbox.addEventListener("change", e => {
         if (checkbox.checked) {
-            todo.bool = true
+
             ulDone.append(li);
             timeStampDone.innerHTML = "<strong>Done whit task: </strong>" + setTime();
             inBeginning(ulDone, li)
         }
         else {
-            todo.bool = false
+
             ulTodo.appendChild(li);
             timeStampDone.innerHTML = "";
             inBeginning(ulTodo, li)
@@ -89,10 +85,10 @@ function createTodo(todo) {
             }
             else if (li.parentElement === ulDone) {
                 ulDone.removeChild(li)
-            }  
+            }
             e.stopPropagation()
         })
-    }); 
+    });
 
 };
 
@@ -113,7 +109,7 @@ function createATodoFetch(todo, list, after) {
         .then((value) => {
             value.id = idCount++;
             list.push(value);
-            after();  //lägger till en funktion om det behövs lägg in after i parametern
+            after(value);  //lägger till en funktion om det behövs lägg in after i parametern
             console.log(value.id)
         });
 }
@@ -183,7 +179,7 @@ function loopTrueTodo(information) {
         if (checkbox.checked) {
             ulDone.append(li)
         }
-      
+
         checkbox.addEventListener("change", e => {
             if (checkbox.checked) {
                 console.log(bool)
@@ -196,7 +192,7 @@ function loopTrueTodo(information) {
                 console.log(bool)
                 bool = false
                 timeStampDone.innerHTML = "";
-               
+
             }
             e.stopPropagation()
         })
@@ -229,6 +225,6 @@ function setTime() {
 }
 
 function inBeginning(parent, insert) {
- const firstChild = parent.firstChild;
- parent.insertBefore(insert, firstChild)
+    const firstChild = parent.firstChild;
+    parent.insertBefore(insert, firstChild)
 }

@@ -5,19 +5,18 @@
    
     }
     body {
-        background-color: rgba(137, 43, 226, 0.144);
+        background-color: rgba(43, 226, 89, 0.317);
         color: rgba(18, 17, 17, 0.858);
         font-family:  'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     }
     .header {
-        background-color: rgba(137, 43, 226, 0.726);
+        background-color: rgba(77, 217, 77, 0.624);
         padding: 20px;
         text-align: center;
     }
     .container {
         display: flex;
         justify-content: center;
-
     }
    
     input {
