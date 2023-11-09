@@ -1,6 +1,6 @@
 # TodoApp.JS1
 
-En simpel todo aplikation. Main branchen innehåller uppgiften för G krav. DummyJS branchen inbehåller kod för VG med dummyjs api för att hantera todos. 
+En simpel todo aplikation i vanilla JavaScript. En av 2 uppgifter gjord i javascript kurs 1. Main branchen innehåller uppgiften för G krav. DummyJS branchen inbehåller kod för VG med dummyjs api för att hantera todos. 
 
 ## nedan följer uppgiftens instruktioner
 todoapp
